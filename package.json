@@ -1,5 +1,5 @@
 {
-  "name": "apollo-angular",
+  "name": "apollo-angular-tutorial",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -19,7 +19,14 @@
     "@angular/platform-browser": "~7.1.0",
     "@angular/platform-browser-dynamic": "~7.1.0",
     "@angular/router": "~7.1.0",
+    "apollo-angular": "^1.5.0",
+    "apollo-angular-link-http": "^1.5.0",
+    "apollo-cache-inmemory": "^1.4.2",
+    "apollo-client": "^2.4.12",
+    "apollo-link": "^1.2.8",
     "core-js": "^2.5.4",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
