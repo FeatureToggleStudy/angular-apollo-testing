@@ -1,0 +1,4 @@
+<ng-container *ngIf="data | async as user">
+  <div>Projects: {{ user.projectsUrl }}</div>
+  <div>Avatars: {{ user.avatarUrl }}</div>
+</ng-container>
