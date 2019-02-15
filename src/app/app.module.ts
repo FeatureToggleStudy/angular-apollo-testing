@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatButtonModule
+} from '@angular/material';
+
+
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -28,6 +35,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     ApolloModule,
     HttpLinkModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
     AppRoutingModule
   ],
   providers: [{

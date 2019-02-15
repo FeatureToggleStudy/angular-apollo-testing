@@ -1,10 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
-import { Observable } from 'rxjs';
-import {
-  map
-} from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 // import * as dotenv from 'dotenv'
 // dotenv.config()
@@ -18,7 +14,7 @@ interface GitHubResponse {
   templateUrl: './add-project.component.html',
   styleUrls: ['./add-project.component.css']
 })
-export class AddProjectComponent implements OnInit {
+export class AddProjectComponent {
   someId = Math.floor((Math.random() * 10000) + 1);
   ownerId = environment.OWNER_ID || '';
   addProjectMutation = gql`
@@ -38,10 +34,6 @@ export class AddProjectComponent implements OnInit {
 
   constructor(private apollo: Apollo) {}
 
-  ngOnInit() {
-    // console.log('process.env.OWNER_ID', process.env.OWNER_ID)
-    console.log('environment', environment)
-  }
   addProject() {
     console.log('add project clicked')
     this.executeAddProject()
