@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { AddProjectComponent } from './add-project/add-project.component';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { ProjectsComponent } from './projects/projects.component';
     AppComponent,
     ExchangeRatesComponent,
     ProfileComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +34,7 @@ import { ProjectsComponent } from './projects/projects.component';
     provide: APOLLO_OPTIONS,
     useFactory(httpLink: HttpLink) {
       const authLink = setContext((_, { headers }) => {
-        // get the authentication token from local storage if it exists
-        const token = localStorage.getItem('graphql-cli-token');
+        const token = environment.GRAPHQL_CLI_TOKEN || '';
         // return the headers to the context so httpLink can read them
         return {
           headers: {
@@ -58,9 +60,3 @@ import { ProjectsComponent } from './projects/projects.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-// curl -H "Authorization: bearer 17e871c5008cfb365cac2a61313d15f8bc374b9e" -X POST -d " \
-//  { \
-//    \"query\": \"query { viewer { rafalmiler77 }}\" \
-//  } \
-// " https://api.github.com/graphql
