@@ -15,13 +15,13 @@ interface GitHubResponse {
   styleUrls: ['./add-project.component.css']
 })
 export class AddProjectComponent {
-  someId = Math.floor((Math.random() * 10000) + 1);
+  someId = () => Math.floor((Math.random() * 10000) + 1);
   ownerId = environment.OWNER_ID || '';
   addProjectMutation = gql`
-    mutation createProject{ 
+    mutation createProject($ownerId: ID!, $name: String!){ 
       createProject(input: {
-        ownerId: "${this.ownerId}"
-        name: "some Project ${this.someId}"
+        ownerId: $ownerId
+        name: $name
         body: "this is a graphql-created project for learning purpose"
       }){
         project {
@@ -41,9 +41,13 @@ export class AddProjectComponent {
 
   private executeAddProject(){
     this.apollo.mutate({
-      mutation: this.addProjectMutation
+      mutation: this.addProjectMutation,
+      variables: {
+        ownerId: this.ownerId.toString(),
+        name: `Some Project ${this.someId()}`
+      }
     }).subscribe(({ data }: GitHubResponse) => {
-      console.log('project id', data.createProject.project.id)
+      console.log('Id of the new project:', data.createProject.project.id)
     });
   }
 
