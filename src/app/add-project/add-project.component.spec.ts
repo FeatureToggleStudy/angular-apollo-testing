@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddProjectComponent } from './add-project.component';
+import { GitHubProjectsService } from '../githubprojects.service';
+import { of } from 'rxjs';
+
+class MockGitHubProjectsService {
+  addProject = () => of({});
+};
 
 describe('AddProjectComponent', () => {
   let component: AddProjectComponent;
@@ -8,7 +14,10 @@ describe('AddProjectComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddProjectComponent ]
+      declarations: [ AddProjectComponent ],
+      providers: [{
+        provide: GitHubProjectsService, useClass: MockGitHubProjectsService 
+      }]
     })
     .compileComponents();
   }));
@@ -19,7 +28,7 @@ describe('AddProjectComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  fit('should create', () => {
     expect(component).toBeTruthy();
   });
 });

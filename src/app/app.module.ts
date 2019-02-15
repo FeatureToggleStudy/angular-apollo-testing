@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule
 } from '@angular/material';
@@ -11,6 +11,8 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
+
+import { GitHubProjectsService } from './githubprojects.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,7 +66,9 @@ import { environment } from '../environments/environment';
       };
     },
     deps: [HttpLink]
-  }],
+  },
+    GitHubProjectsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
