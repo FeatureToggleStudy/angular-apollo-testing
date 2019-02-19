@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  GRAPHQL_CLI_TOKEN: '',
+  OWNER_ID: ''
 };
 
 /*

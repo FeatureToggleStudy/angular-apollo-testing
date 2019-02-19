@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Apollo} from 'apollo-angular';
-import gql from 'graphql-tag';
 import { ApolloQueryResult } from 'apollo-client';
+import { RatesService } from '../rates.service';
 
-export interface Rates {
+export interface Rate {
   currency: string;
   rate: string;
+}
+
+export interface Rates {
+  rates: Rate[];
 }
 
 @Component({
@@ -14,30 +17,20 @@ export interface Rates {
   styleUrls: ['./exchange-rates.component.css']
 })
 export class ExchangeRatesComponent implements OnInit {
-  rates: Rates[];
+
+  rates: Rate[];
   loading = true;
   error: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private ratesService: RatesService) { }
 
   ngOnInit() {
-    this.apollo
-      .watchQuery({
-        query: gql`
-          {
-            rates(currency: "USD") {
-              currency
-              rate
-            }
-          }
-        `,
-      })
-      .valueChanges.subscribe((result: ApolloQueryResult<{rates: Rates[]}>) => {
+    this.ratesService.getRates()
+      .subscribe((result: ApolloQueryResult<Rates>) => {
         console.log('result', result)
         this.rates = result.data && result.data.rates;
         this.loading = result.loading;
         this.error = result.errors;
       });
   }
-
 }

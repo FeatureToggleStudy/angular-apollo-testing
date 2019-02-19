@@ -16,7 +16,7 @@ describe('AddProjectComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ AddProjectComponent ],
       providers: [{
-        provide: GitHubProjectsService, useClass: MockGitHubProjectsService 
+        provide: GitHubProjectsService, useClass: MockGitHubProjectsService
       }]
     })
     .compileComponents();
@@ -28,7 +28,7 @@ describe('AddProjectComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
