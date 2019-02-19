@@ -3,10 +3,8 @@ import {
   ApolloTestingModule,
   ApolloTestingController,
 } from 'apollo-angular/testing';
-import { ApolloQueryResult } from 'apollo-client/core/types';
 
 import { RatesService, GET_RATES_QUERY } from './rates.service';
-import { Rates } from './exchange-rates/exchange-rates.component';
 
 describe('RatesService', () => {
   let injector: TestBed;
@@ -15,8 +13,8 @@ describe('RatesService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ApolloTestingModule],
-      providers: [RatesService]
+      imports: [ ApolloTestingModule ],
+      providers: [ RatesService ]
     });
 
     injector = getTestBed();
@@ -32,22 +30,10 @@ describe('RatesService', () => {
     expect(ratesService).toBeTruthy();
   });
 
-  it('should return rates', () => {
-    const resultRates: any = {
-      data: {
-        rates: [
-          { currency: 'AFN' },
-          { rate: '75,40' }
-        ]
-      }
-    };
+  it('should pass right variable', async () => {
 
-    ratesService.getRates().subscribe(({ data }: ApolloQueryResult<Rates>) => {
-      console.log('test rates', data);
-      expect(data.rates).toEqual(resultRates.data.rates);
-    });
-
+    ratesService.getRates().subscribe();
     const req = controller.expectOne(GET_RATES_QUERY);
-    req.flush(resultRates);
+    expect(req.operation.variables.currency).toEqual('USD');
   });
 });

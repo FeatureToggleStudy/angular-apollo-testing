@@ -1,6 +1,22 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ExchangeRatesComponent } from './exchange-rates.component';
+import { RatesService } from '../rates.service';
+import { of } from 'rxjs';
+
+class RatesServiceMock {
+  getRates() {
+    const resultRates: any = {
+      data: {
+        rates: [
+          { currency: 'AFN' },
+          { rate: '75,40' }
+        ]
+      }
+    };
+    return of(resultRates);
+  }
+}
 
 describe('ExchangeRatesComponent', () => {
   let component: ExchangeRatesComponent;
@@ -8,7 +24,10 @@ describe('ExchangeRatesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExchangeRatesComponent ]
+      declarations: [ ExchangeRatesComponent ],
+      providers: [
+        { provide: RatesService, useClass: RatesServiceMock }
+      ]
     })
     .compileComponents();
   }));
@@ -21,5 +40,8 @@ describe('ExchangeRatesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('should return rates', () => {
+    expect(component.rates[0].currency).toBe('AFN');
   });
 });

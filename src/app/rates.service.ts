@@ -3,8 +3,8 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 export const GET_RATES_QUERY = gql`
-  {
-    rates(currency: "USD") {
+  query getRates($currency: String){
+    rates(currency: $currency) {
       currency
       rate
     }
@@ -21,14 +21,10 @@ export class RatesService {
   getRates() {
     return this.apollo
       .watchQuery({
-        query: gql`
-        {
-          rates(currency: "USD") {
-            currency
-            rate
-          }
+        query: GET_RATES_QUERY,
+        variables: {
+          currency: 'USD'
         }
-      `,
       }).valueChanges;
   }
 
