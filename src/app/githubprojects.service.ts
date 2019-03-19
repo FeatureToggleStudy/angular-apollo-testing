@@ -10,10 +10,11 @@ import { environment } from '../environments/environment';
 })
 export class GitHubProjectsService {
 
-  someId = () => Math.floor((Math.random() * 10000) + 1);
+  constructor(private apollo: Apollo) {}
+
   ownerId = environment.OWNER_ID || '';
   addProjectMutation = gql`
-    mutation createProject($ownerId: ID!, $name: String!){ 
+    mutation createProject($ownerId: ID!, $name: String!){
       createProject(input: {
         ownerId: $ownerId
         name: $name
@@ -27,7 +28,7 @@ export class GitHubProjectsService {
     }
   `;
 
-  constructor(private apollo: Apollo) {}
+  someId = () => Math.floor((Math.random() * 10000) + 1);
 
   addProject(){
     return this.apollo.mutate({

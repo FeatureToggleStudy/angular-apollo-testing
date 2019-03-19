@@ -30,7 +30,7 @@ describe('RatesService', () => {
     expect(ratesService).toBeTruthy();
   });
 
-  it('should pass right variable', async () => {
+  it('should pass right variable', () => {
 
     ratesService.getRates().subscribe();
     const req = controller.expectOne(GET_RATES_QUERY);

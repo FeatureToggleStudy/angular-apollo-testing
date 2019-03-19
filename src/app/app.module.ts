@@ -21,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { environment } from '../environments/environment';
+import { DecoratorsComponent } from './decorators/decorators.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { environment } from '../environments/environment';
     ExchangeRatesComponent,
     ProfileComponent,
     ProjectsComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    DecoratorsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,20 +51,20 @@ import { environment } from '../environments/environment';
         return {
           headers: {
             ...headers,
-            authorization: token ? `Bearer ${token}` : "",
+            authorization: token ? `Bearer ${token}` : '',
           }
         }
       });
-      
+
       const getHttpLink = (httpLink) => httpLink.create({
         uri: 'https://api.github.com/graphql'
       })
       return {
         cache: new InMemoryCache(),
-        link: authLink.concat(getHttpLink(httpLink)),
-        // link: httpLink.create({
-        //   uri: 'https://o5x5jzoo7z.sse.codesandbox.io/graphql'
-        // })
+        // link: authLink.concat(getHttpLink(httpLink)),
+        link: httpLink.create({
+          uri: 'https://o5x5jzoo7z.sse.codesandbox.io/graphql'
+        })
       };
     },
     deps: [HttpLink]
