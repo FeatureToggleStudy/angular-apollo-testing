@@ -22,7 +22,9 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { environment } from '../environments/environment';
 import { DecoratorsComponent } from './decorators/decorators.component';
-
+import { ForScrollComponent } from './for-scroll/for-scroll.component';
+import { LoremIpsumComponent } from './for-scroll/lorem-ipsum.component';
+import { ScrollSpyDirective } from './directives/scroll-spy.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { DecoratorsComponent } from './decorators/decorators.component';
     ProfileComponent,
     ProjectsComponent,
     AddProjectComponent,
-    DecoratorsComponent
+    DecoratorsComponent,
+    ForScrollComponent,
+    LoremIpsumComponent,
+    ScrollSpyDirective
   ],
   imports: [
     BrowserModule,

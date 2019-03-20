@@ -1,0 +1,24 @@
+<header>
+  <h2>Menu</h2>
+  <div>Section 1
+    <ng-container *ngIf="currentSection==='section1'">O</ng-container>
+  </div>
+  <div>Section 2
+    <ng-container *ngIf="currentSection==='section2'">O</ng-container>
+  </div>
+  <div>Section 3
+    <ng-container *ngIf="currentSection==='section3'">O</ng-container>
+  </div>
+  <div>Section 4
+    <ng-container *ngIf="currentSection==='section4'">O</ng-container>
+  </div>
+</header>
+
+<div id="parentDiv" appScrollSpy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+  <ng-container *ngFor="let section of sections; let i = index">
+      <section id="{{section}}">
+          <h2 style="margin:0">Section {{ i+1 }}</h2>
+          <lorem-ipsum></lorem-ipsum>
+      </section>
+  </ng-container>
+</div>
