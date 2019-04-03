@@ -27,6 +27,7 @@ import { LoremIpsumComponent } from './for-scroll/lorem-ipsum.component';
 import { ScrollSpyDirective } from './directives/scroll-spy.directive';
 import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 import { EagerComponent } from './lazy-loading/eager/eager.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { EagerComponent } from './lazy-loading/eager/eager.component';
     ScrollSpyDirective,
     LazyLoadingComponent,
     EagerComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
