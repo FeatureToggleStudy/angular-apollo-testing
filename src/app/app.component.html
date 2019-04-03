@@ -1,14 +1,21 @@
 <div style="text-align:center">
   <h3>
-    Welcome to Angular apollo!
+    Angular and Apollo playground!
   </h3>
 </div>
 
 <router-outlet></router-outlet>
-<!-- <app-exchange-rates></app-exchange-rates> -->
-<!-- <app-decorators></app-decorators> -->
-<!-- <app-for-scroll></app-for-scroll> -->
+
+<button (click)="toggleFeature('exchangeRates')">Toggle exchange-rates</button>
+<app-exchange-rates *ngIf="featureTogglerService.config.exchangeRates"></app-exchange-rates>
+<button (click)="toggleFeature('decorators')">Toggle decorators</button>
+<app-decorators *ngIf="featureTogglerService.config.decorators"></app-decorators>
+<button (click)="toggleFeature('forScroll')">Toggle forScroll</button>
+<app-for-scroll *ngIf="featureTogglerService.config.forScroll"></app-for-scroll>
+<button (click)="toggleFeature('lazyLoading')">Toggle lazy loading</button>
+<app-lazy-loading *ngIf="featureTogglerService.config.lazyLoading"></app-lazy-loading>
+
 <!-- <app-profile></app-profile>
 <app-projects></app-projects>
 <app-add-project></app-add-project> -->
-<app-lazy-loading></app-lazy-loading>
+
