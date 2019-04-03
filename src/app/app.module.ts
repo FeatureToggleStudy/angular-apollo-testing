@@ -25,6 +25,8 @@ import { DecoratorsComponent } from './decorators/decorators.component';
 import { ForScrollComponent } from './for-scroll/for-scroll.component';
 import { LoremIpsumComponent } from './for-scroll/lorem-ipsum.component';
 import { ScrollSpyDirective } from './directives/scroll-spy.directive';
+import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
+import { EagerComponent } from './lazy-loading/eager/eager.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { ScrollSpyDirective } from './directives/scroll-spy.directive';
     DecoratorsComponent,
     ForScrollComponent,
     LoremIpsumComponent,
-    ScrollSpyDirective
+    ScrollSpyDirective,
+    LazyLoadingComponent,
+    EagerComponent,
   ],
   imports: [
     BrowserModule,
