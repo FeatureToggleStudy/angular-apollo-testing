@@ -4,31 +4,28 @@ import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-  MatButtonModule
+  MatButtonModule,
+  MatSlideToggleModule
 } from '@angular/material';
 
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
+import { AppRoutingModule } from './app-routing.module';
 
+import { TopicsModule } from './topics/topics.module';
 import { GitHubProjectsService } from './githubprojects.service';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { environment } from '../environments/environment';
-import { DecoratorsComponent } from './decorators/decorators.component';
-import { ForScrollComponent } from './for-scroll/for-scroll.component';
-import { LoremIpsumComponent } from './for-scroll/lorem-ipsum.component';
-import { ScrollSpyDirective } from './directives/scroll-spy.directive';
 import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 import { EagerComponent } from './lazy-loading/eager/eager.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CoercionComponent } from './coercion/coercion.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +34,9 @@ import { CoercionComponent } from './coercion/coercion.component';
     ProfileComponent,
     ProjectsComponent,
     AddProjectComponent,
-    DecoratorsComponent,
-    ForScrollComponent,
-    LoremIpsumComponent,
-    ScrollSpyDirective,
     LazyLoadingComponent,
     EagerComponent,
     NotFoundComponent,
-    CoercionComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +45,8 @@ import { CoercionComponent } from './coercion/coercion.component';
     HttpLinkModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatSlideToggleModule,
+    TopicsModule,
     AppRoutingModule
   ],
   providers: [{

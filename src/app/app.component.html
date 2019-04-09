@@ -4,18 +4,15 @@
   </h3>
 </div>
 
-<router-outlet></router-outlet>
+<mat-slide-toggle (change)="toggleFeature('lazyLoading')" [checked]="getStatus('lazyLoading')">Lazy loading</mat-slide-toggle>
+<mat-slide-toggle (change)="toggleFeature('exchangeRates')" [checked]="getStatus('exchangeRates')">Exchange-rates</mat-slide-toggle>
 
-<button (click)="toggleFeature('exchangeRates')">Toggle exchange-rates</button>
-<app-exchange-rates *ngIf="featureTogglerService.config.exchangeRates"></app-exchange-rates>
-<button (click)="toggleFeature('decorators')">Toggle decorators</button>
-<app-decorators *ngIf="featureTogglerService.config.decorators"></app-decorators>
-<button (click)="toggleFeature('forScroll')">Toggle forScroll</button>
-<app-for-scroll *ngIf="featureTogglerService.config.forScroll"></app-for-scroll>
-<button (click)="toggleFeature('lazyLoading')">Toggle lazy loading</button>
 <app-lazy-loading *ngIf="featureTogglerService.config.lazyLoading"></app-lazy-loading>
-<button (click)="toggleFeature('coercion')">Toggle coercion</button>
-<app-coercion *ngIf="featureTogglerService.config.coercion"></app-coercion>
+<app-exchange-rates *ngIf="featureTogglerService.config.exchangeRates"></app-exchange-rates>
+
+<app-topics></app-topics>
+
+<router-outlet></router-outlet>
 
 <!-- <app-profile></app-profile>
 <app-projects></app-projects>

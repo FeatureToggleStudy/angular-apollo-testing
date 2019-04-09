@@ -77,7 +77,7 @@ export class CoercionComponent implements OnInit {
     console.log(String(disk))  // Capacity: 1048576 bytes
     console.log(disk + ' b')     // '1048576'
     console.log('+disk: ', +disk);        // 1024
-    console.log(disk > 1000);  // true
+    console.log(<any>disk > 1000);  // true
   }
 
 }

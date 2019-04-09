@@ -16,8 +16,12 @@ export class FeatureTogglerService {
   constructor() { }
 
   toggleFeature(feature) {
-    if ( feature in this.config){
-      this.config[feature] = !this.config[feature]
+    if (feature in this.config) {
+      Object.keys(this.config).map(key => {
+        key === feature
+          ? this.config[key] = true
+          : this.config[key] = false
+      })
     }
   }
 

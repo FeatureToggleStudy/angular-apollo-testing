@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { FeatureTogglerService } from './topics/services/feature-toggler.service';
+import { FeatureTogglerService } from '../services/feature-toggler.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-topics',
+  templateUrl: './topics.component.html',
+  styleUrls: ['./topics.component.css']
 })
-export class AppComponent {
+export class TopicsComponent {
 
   constructor(
     public featureTogglerService: FeatureTogglerService

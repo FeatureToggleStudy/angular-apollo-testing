@@ -1,0 +1,12 @@
+<p>
+  topics works!
+</p>
+
+
+<mat-slide-toggle (change)="toggleFeature('decorators')" [checked]="getStatus('decorators')">Decorators</mat-slide-toggle>
+<mat-slide-toggle (change)="toggleFeature('forScroll')" [checked]="getStatus('forScroll')">For scroll</mat-slide-toggle>
+<mat-slide-toggle (change)="toggleFeature('coercion')" [checked]="getStatus('coercion')">Coercion</mat-slide-toggle>
+
+<app-decorators *ngIf="featureTogglerService.config.decorators"></app-decorators>
+<app-for-scroll *ngIf="featureTogglerService.config.forScroll"></app-for-scroll>
+<app-coercion *ngIf="featureTogglerService.config.coercion"></app-coercion>
