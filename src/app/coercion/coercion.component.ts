@@ -1,5 +1,6 @@
 // http://2ality.com/2012/01/object-plus-object.html
 // https://medium.freecodecamp.org/js-type-coercion-explained-27ba3d9a2839
+// https://hackernoon.com/understanding-js-coercion-ff5684475bfc
 
 import { Component, OnInit } from '@angular/core';
 
