@@ -28,6 +28,7 @@ import { ScrollSpyDirective } from './directives/scroll-spy.directive';
 import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 import { EagerComponent } from './lazy-loading/eager/eager.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { CoercionComponent } from './coercion/coercion.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LazyLoadingComponent,
     EagerComponent,
     NotFoundComponent,
+    CoercionComponent,
   ],
   imports: [
     BrowserModule,

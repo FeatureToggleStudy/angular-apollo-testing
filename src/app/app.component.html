@@ -14,6 +14,8 @@
 <app-for-scroll *ngIf="featureTogglerService.config.forScroll"></app-for-scroll>
 <button (click)="toggleFeature('lazyLoading')">Toggle lazy loading</button>
 <app-lazy-loading *ngIf="featureTogglerService.config.lazyLoading"></app-lazy-loading>
+<button (click)="toggleFeature('coercion')">Toggle coercion</button>
+<app-coercion *ngIf="featureTogglerService.config.coercion"></app-coercion>
 
 <!-- <app-profile></app-profile>
 <app-projects></app-projects>

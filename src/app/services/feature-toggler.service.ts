@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class FeatureTogglerService {
 
   config = {
+    coercion: false,
     decorators: false,
     exchangeRates: false,
     forScroll: false,
