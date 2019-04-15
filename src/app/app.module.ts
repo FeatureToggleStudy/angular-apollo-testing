@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
@@ -26,6 +27,7 @@ import { environment } from '../environments/environment';
 import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
 import { EagerComponent } from './lazy-loading/eager/eager.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LazyLoadingComponent,
     EagerComponent,
     NotFoundComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +49,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatSlideToggleModule,
+    MatMenuModule,
     TopicsModule,
     AppRoutingModule
   ],

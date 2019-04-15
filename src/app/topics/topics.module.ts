@@ -7,6 +7,7 @@ import {
 import { ScrollSpyDirective } from './directives/scroll-spy.directive';
 
 import { TopicsComponent } from './topics/topics.component';
+import { topicsRouting } from './topics.routing';
 import { DecoratorsComponent } from './decorators/decorators.component';
 import { ForScrollComponent, } from './for-scroll/for-scroll.component';
 import { LoremIpsumComponent } from './for-scroll/lorem-ipsum.component';
@@ -15,7 +16,8 @@ import { CoercionComponent } from './coercion/coercion.component';
 @NgModule({
   imports: [
     CommonModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    topicsRouting
   ],
   declarations: [
     TopicsComponent,

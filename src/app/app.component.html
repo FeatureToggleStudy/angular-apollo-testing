@@ -3,14 +3,13 @@
     Angular and Apollo playground!
   </h3>
 </div>
+<app-navbar></app-navbar>
 
 <mat-slide-toggle (change)="toggleFeature('lazyLoading')" [checked]="getStatus('lazyLoading')">Lazy loading</mat-slide-toggle>
 <mat-slide-toggle (change)="toggleFeature('exchangeRates')" [checked]="getStatus('exchangeRates')">Exchange-rates</mat-slide-toggle>
 
 <app-lazy-loading *ngIf="featureTogglerService.config.lazyLoading"></app-lazy-loading>
 <app-exchange-rates *ngIf="featureTogglerService.config.exchangeRates"></app-exchange-rates>
-
-<app-topics></app-topics>
 
 <router-outlet></router-outlet>
 
