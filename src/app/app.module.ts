@@ -13,8 +13,9 @@ import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { setContext } from 'apollo-link-context';
-import { AppRoutingModule } from './app-routing.module';
 
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
 import { TopicsModule } from './topics/topics.module';
 import { GitHubProjectsService } from './githubprojects.service';
 
@@ -23,9 +24,6 @@ import { ExchangeRatesComponent } from './exchange-rates/exchange-rates.componen
 import { ProfileComponent } from './profile/profile.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
-import { environment } from '../environments/environment';
-import { LazyLoadingComponent } from './lazy-loading/lazy-loading.component';
-import { EagerComponent } from './lazy-loading/eager/eager.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -36,8 +34,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     ProfileComponent,
     ProjectsComponent,
     AddProjectComponent,
-    LazyLoadingComponent,
-    EagerComponent,
     NotFoundComponent,
     NavbarComponent,
   ],
