@@ -26,6 +26,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GraphQLRatesModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -47,35 +48,37 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatSlideToggleModule,
     MatMenuModule,
     TopicsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GraphQLRatesModule
   ],
-  providers: [{
-    provide: APOLLO_OPTIONS,
-    useFactory(httpLink: HttpLink) {
-      const authLink = setContext((_, { headers }) => {
-        const token = environment.GRAPHQL_CLI_TOKEN || '';
-        // return the headers to the context so httpLink can read them
-        return {
-          headers: {
-            ...headers,
-            authorization: token ? `Bearer ${token}` : '',
-          }
-        }
-      });
+  providers: [
+  //   {
+  //   provide: APOLLO_OPTIONS,
+  //   useFactory(httpLink: HttpLink) {
+  //     const authLink = setContext((_, { headers }) => {
+  //       const token = environment.GRAPHQL_CLI_TOKEN || '';
+  //       // return the headers to the context so httpLink can read them
+  //       return {
+  //         headers: {
+  //           ...headers,
+  //           authorization: token ? `Bearer ${token}` : '',
+  //         }
+  //       }
+  //     });
 
-      const getHttpLink = (httpLink) => httpLink.create({
-        uri: 'https://api.github.com/graphql'
-      })
-      return {
-        cache: new InMemoryCache(),
-        // link: authLink.concat(getHttpLink(httpLink)),
-        link: httpLink.create({
-          uri: 'https://o5x5jzoo7z.sse.codesandbox.io/graphql'
-        })
-      };
-    },
-    deps: [HttpLink]
-  },
+  //     const getHttpLink = (httpLink) => httpLink.create({
+  //       uri: 'https://api.github.com/graphql'
+  //     })
+  //     return {
+  //       cache: new InMemoryCache(),
+  //       link: authLink.concat(getHttpLink(httpLink)),
+  //       // link: httpLink.create({
+  //       //   uri: 'https://o5x5jzoo7z.sse.codesandbox.io/graphql'
+  //       // })
+  //     };
+  //   },
+  //   deps: [HttpLink]
+  // },
     GitHubProjectsService
   ],
   bootstrap: [AppComponent]
