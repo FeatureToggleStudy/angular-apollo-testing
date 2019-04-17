@@ -3,7 +3,7 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 export const GET_RATES_QUERY = gql`
-  query getRates($currency: String){
+  query getRates($currency: String!){
     rates(currency: $currency) {
       currency
       rate
